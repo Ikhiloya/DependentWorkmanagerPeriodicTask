@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/staffFragment">
+
+    <fragment
+        android:id="@+id/staffFragment"
+        android:name="com.ikhiloyaimokhai.dependentworkmanagerperiodictask.view.fragment.staff.StaffFragment"
+        android:label="@string/staff"
+        tools:layout="@layout/fragment_staff">
+        <action
+            android:id="@+id/action_staffFragment_to_staffDetailFragment"
+            app:destination="@id/staffDetailFragment" />
+        <action
+            android:id="@+id/action_staffFragment_to_addStaffFragment"
+            app:destination="@id/addStaffFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/beneficiaryFragment"
+        android:name="com.ikhiloyaimokhai.dependentworkmanagerperiodictask.view.fragment.beneficiary.BeneficiaryFragment"
+        android:label="@string/beneficiary"
+        tools:layout="@layout/fragment_beneficiary">
+        <argument
+            android:name="staffLocalId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_beneficiaryFragment_to_beneficiaryDetailFragment"
+            app:destination="@id/beneficiaryDetailFragment" />
+        <action
+            android:id="@+id/action_beneficiaryFragment_to_addBeneficiaryFragment"
+            app:destination="@id/addBeneficiaryFragment" />
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffDetailFragment"
+        android:name="com.ikhiloyaimokhai.dependentworkmanagerperiodictask.view.fragment.staff.StaffDetailFragment"
+        android:label="@string/staff"
+        tools:layout="@layout/fragment_staff_detail">
+        <action
+            android:id="@+id/action_staffDetailFragment_to_beneficiaryFragment"
+            app:destination="@id/beneficiaryFragment" />
+        <argument
+            android:name="staffID"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="firstName"
+            app:argType="string" />
+        <argument
+            android:name="lastName"
+            app:argType="string" />
+        <argument
+            android:name="staffLocalId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBeneficiaryFragment"
+        android:name="com.ikhiloyaimokhai.dependentworkmanagerperiodictask.view.fragment.beneficiary.AddBeneficiaryFragment"
+        android:label="@string/add_beneficiary"
+        tools:layout="@layout/fragment_add_beneficiary" >
+        <argument
+            android:name="staffLocalId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/addStaffFragment"
+        android:name="com.ikhiloyaimokhai.dependentworkmanagerperiodictask.view.fragment.staff.AddStaffFragment"
+        android:label="@string/add_staff"
+        tools:layout="@layout/fragment_add_staff" />
+    <fragment
+        android:id="@+id/beneficiaryDetailFragment"
+        android:name="com.ikhiloyaimokhai.dependentworkmanagerperiodictask.view.fragment.beneficiary.BeneficiaryDetailFragment"
+        android:label="@string/beneficiary"
+        tools:layout="@layout/fragment_beneficiary_detail" >
+        <argument
+            android:name="firstName"
+            app:argType="string" />
+        <argument android:name="lastName"
+            app:argType="string" />
+        <argument
+            android:name="relationship"
+            app:argType="string" />
+    </fragment>
+</navigation>
